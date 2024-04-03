@@ -66,7 +66,7 @@ def httpByWeek(startDate):
     currentDir = os.getcwd()
     pathlib.Path(currentDir + '/tmp/Http').mkdir(parents=True, exist_ok=True)
 
-    with open(currentDir + '/r1/Http.csv') as httpFile:
+    with open(currentDir + '/r1/http.csv') as httpFile:
         weekStart = startDate
         currentDf = []
         fileReader = csv.reader(httpFile, delimiter=',')

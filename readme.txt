@@ -45,3 +45,17 @@ We’ve worked to make the data realistic in certain, very specific ways, listed
 * Users either tend to use thumb drives or they don’t. But for thumb drive users, there is no significance or trend regarding their frequency of usage.
 * User behavior is not influenced by the day of the week.
 * Users never log in on weekends, and there is no awareness of holidays.
+
+epsilon_detection.ipynb
+Step by step process and logic behind the code.
+1. One method to add noise to the categorical data was to figure out the data-type from each column and based on the sensitvity value of the data choose the epsilon value needed to add exponential noise to the data. Since I did not have much knowledge of that I wanted to go forward with the laplace noise.
+2. Thus found a workaround for that. Laplace noise only works on the numerical dataset. Hence while generating the tmp directory, calculated the currentCount for the user in each file based on their activity across a specific time period and sent the variable to add_noise_categorical function. This function will calculate the laplace noise based on the currentCount variable and return the noisy_count.
+3. Once we receive the noisy_count the new dataset will have columns 'Users' and 'Noisy_Count' corresponding to them across 70 files. 
+4. Now to detect the anomalous users we need to aggregate the count value across 70 files for each user for one activity, so implement that.
+5. Then for each acitvity fit the isolation forest model.
+6. Predicted the anomalies and plotted them.
+
+Challenges:
+1. Could not use detection_v1 code as the output dataset did not have the same columns anymore and would need to make multiple changes in the code.
+2. Based on my understanding of the detection_v1 code, the code also detects anomalies across different acitvities, so did the same.
+

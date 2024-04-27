@@ -2,9 +2,6 @@
 
 As part of a project for 17-735: Engineering Privacy in Software, this repo creates three different versions of an isolation forest ML model trained to detect anomalies on employee data. 
 
-### Contributors
-Aimee Feng [(af223)](https://github.com/af223), Bhavesh Dhake [(wickywanka)](https://github.com/wickywanka), Prachi Doshi [(PrachiDoshi2170)](https://github.com/PrachiDoshi2170)
-
 ## Details
 
 Our goal is to investigate different approaches towards creating a model for detecting insider threats based on employee data while preserving employee privacy through epsilon-differential privacy. We use the Insider Threat Test Dataset released by CMU [here](https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825). For the purpose of carrying out exploration of privacy-preserving methods in anomaly detection, we decided to use the version 1 (r1) dataset as this was sufficiently enough data to train and test our models on. In addition, we acknowledge that there are known issues with this dataset, such as the dataset not accounting for holidays, however later versions of the dataset that address these issues contain too much data to reasonably work with for the scope of our project. The layout of the later dataset versions are similar, if not the same, format as r1, so we can easily extend our project to train and test our ML models on these later-versioned large dataset.
@@ -60,6 +57,9 @@ The next steps from here include:
 * Training and testing on much larger datasets (e.g. r3 or r4 from the CMU Insider Threat Test Dataset)
 * Expanding and further testing on the isolation forest implementation using diffprivlib
 * Work towards making our models compliant with industry privacy standards and other requirements
+
+### Contributors
+Aimee Feng [(af223)](https://github.com/af223), Bhavesh Dhake [(wickywanka)](https://github.com/wickywanka), Prachi Doshi [(PrachiDoshi2170)](https://github.com/PrachiDoshi2170)
 
 ## References
 

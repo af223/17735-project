@@ -13,7 +13,7 @@ Current research shows that ML models built using isolation forests are one of t
 
 Thus, this project contains three implementations of an ML model trained to detect anomalies in employee activity through logs:
 
-### 1. Isolation Forest ML model implemented with sci-kit learn
+### 1. Isolation Forest ML model implemented with scikit learn
 
 1. This model doesn't preserve employee privacy in any way. We chose to use sklearn as it's an open-source library that's one of the most commonly used Python libraries containing ML model implementations.
 
@@ -35,7 +35,7 @@ Thus, this project contains three implementations of an ML model trained to dete
 
 ## Setup & Usage
 
-Download and unzip the r1 CMU Insider Threat Test Dataset from (here)[https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825] in the same directory as where this repo has been cloned.
+Download and unzip the r1 CMU Insider Threat Test Dataset from [here](https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825) in the same directory as where this repo has been cloned.
 
 To generate the preprocessed data from methods (1) and (2) from above, execute the following command:
 
@@ -43,7 +43,7 @@ To generate the preprocessed data from methods (1) and (2) from above, execute t
 python3 preprocess.py
 ```
 
-To train and test the isolation forest ML model implemented with sci-kit learn, inside of the file ``detection_v1.ipynb`` select Python3.7 as the kernel and run all cells.
+To train and test the isolation forest ML model implemented with scikit learn, inside of the file ``detection_v1.ipynb`` select Python3.7 as the kernel and run all cells.
 
 To train and test the isolation forest ML model implemented with diffprivlib, inside of the file ``detection_v2.ipynb`` select Python3.7 as the kernel and run all cells.
 
@@ -65,8 +65,40 @@ The next steps from here include:
 
 The CMU Insider Threat Test Dataset can be found here: [https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825]
 
-Sci-kit learn:
+[Scikit learn](https://scikit-learn.org/stable/about.html):
 
-diffprivlib:
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825–2830.
 
-isolation forest paper:
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825–2830.
+
+[diffprivlib](https://github.com/IBM/differential-privacy-library):
+
+Holohan, N., Braghin, S., Mac Aonghusa, P., & Levacher, K. (2019). Diffprivlib: the IBM differential privacy library. ArXiv E-Prints, 1907.02444 [cs.CR]. Retrieved from arXiv.
+
+[Isolation Forest Paper](https://ieeexplore.ieee.org/document/4781136):
+
+F. T. Liu, K. M. Ting and Z. -H. Zhou, "Isolation Forest," 2008 Eighth IEEE International Conference on Data Mining, Pisa, Italy, 2008, pp. 413-422, doi: 10.1109/ICDM.2008.17.
+
+
+## License 
+MIT License
+
+Copyright (c) Aimee Feng, Bhavesh Dhake, Prachi Doshi, 2024
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

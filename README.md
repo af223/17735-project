@@ -2,6 +2,9 @@
 
 As part of a project for 17-735: Engineering Privacy in Software, this repo creates three different versions of an isolation forest ML model trained to detect anomalies on employee data. 
 
+### Contributors
+Aimee Feng [(af223)](https://github.com/af223), Bhavesh Dhake [(wickywanka)](https://github.com/wickywanka), Prachi Doshi [(PrachiDoshi2170)](https://github.com/PrachiDoshi2170)
+
 ## Details
 
 Our goal is to investigate different approaches towards creating a model for detecting insider threats based on employee data while preserving employee privacy through epsilon-differential privacy. We use the Insider Threat Test Dataset released by CMU [here](https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825). For the purpose of carrying out exploration of privacy-preserving methods in anomaly detection, we decided to use the version 1 (r1) dataset as this was sufficiently enough data to train and test our models on. In addition, we acknowledge that there are known issues with this dataset, such as the dataset not accounting for holidays, however later versions of the dataset that address these issues contain too much data to reasonably work with for the scope of our project. The layout of the later dataset versions are similar, if not the same, format as r1, so we can easily extend our project to train and test our ML models on these later-versioned large dataset.
@@ -30,23 +33,40 @@ Thus, this project contains three implementations of an ML model trained to dete
 
 2. As we deal primarily with non-numerical data in the dataset, we derived a differentially-private dataset from r1 using the Laplace function. We then trained the isolation forest model from sklearn on this new dataset. Due to the different format of this data input than in methods 1 and 2, we analyzed the results from this model differently. Specifically, our testing datapoints also had to transformed into this new format so we could only retrieve the anomaly count and score for users, but could not retrieve any specific detail such as logon/logoff activity as in methods 1 and 2 above since this data has been obscured.
 
+## Setup & Usage
+
+Download and unzip the r1 CMU Insider Threat Test Dataset from (here)[https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825] in the same directory as where this repo has been cloned.
+
+To generate the preprocessed data from methods (1) and (2) from above, execute the following command:
+
+```
+python3 preprocess.py
+```
+
+To train and test the isolation forest ML model implemented with sci-kit learn, inside of the file ``detection_v1.ipynb`` select Python3.7 as the kernel and run all cells.
+
+To train and test the isolation forest ML model implemented with diffprivlib, inside of the file ``detection_v2.ipynb`` select Python3.7 as the kernel and run all cells.
+
+To train and test the isolation forest ML model trained over differentially private dataset, inside of the file ``epsilon_datasset.ipynb`` select Python3.7 as the kernel and run all cells.
+
+These notebooks will produce graphs within the output that visulaize the results of the testing the model. 
+
+
 ### Challenges & Next Steps
 
 We would like to add the disclaimer that our implementation of the isolation forest using diffprivlib has minimal functionality. This was difficult as we had very little time to dive deeply into all parts of the diffprivlib library. However, we accept its correctness based on preliminary results, as running with higher values of epsilon (e.g. 50, 60, ...) roughly matches the results from the sklearn isolation forest model.
 
-Our next steps that have fallen outside the scope of our project include:
+The next steps from here include:
 * Training and testing on much larger datasets (e.g. r3 or r4 from the CMU Insider Threat Test Dataset)
 * Expanding and further testing on the isolation forest implementation using diffprivlib
 * Work towards making our models compliant with industry privacy standards and other requirements
 
-## Credits
+## References
 
-Contributers: Aimee Feng (af223), Bhavesh Dhake, Prachi Doshi
+The CMU Insider Threat Test Dataset can be found here: [https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825]
 
-You'll need to download the dataset https://kilthub.cmu.edu/articles/dataset/Insider_Threat_Test_Dataset/12841247?file=24857825 
+Sci-kit learn:
 
-Assumptions:
-- data structure and file structure follows that of the dataset linked above
-- the first entry of the device, http, and logon files are on the same date
+diffprivlib:
 
-This is really ugly code, I will refactor it and fix a few bugs with skipping over some data during extraction later. Also this is really inefficient at the moment, will take a few minutes to run.
+isolation forest paper:
